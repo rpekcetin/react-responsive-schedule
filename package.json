@@ -1,6 +1,6 @@
 {
   "name": "react-responsive-schedule",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "react responsive schedule",
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs"
@@ -23,5 +23,11 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/RPEKCETIN"
+  },
+  "dependencies": {
+    "rollup-plugin-postcss": "^4.0.2"
+  }
 }
