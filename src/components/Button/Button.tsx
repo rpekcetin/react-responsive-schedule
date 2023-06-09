@@ -2,7 +2,7 @@ import React from 'react'
 import './Button.css'
 interface ButtonProps {
     label: string
-    className: string
+    className?: string
 }
 
 const Button = (props: ButtonProps) => {
