@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import './Schedule.css'
-import DateButton from './DateButton/DateButton'
-import { IDateArray, ScheduleProps } from './types'
+import DateButton from './components/DateButton/DateButton'
+import { IDateArray, IScheduleProps } from './types'
+import ScheduleNav from './components/ScheduleNav/ScheduleNav'
 
-const Schedule = (props: ScheduleProps) => {
+const Schedule = (props: IScheduleProps) => {
     const date = new Date();
     const currentYear = date.getFullYear();
     const currentMonth = date.getMonth() + 1;
@@ -44,6 +45,7 @@ const Schedule = (props: ScheduleProps) => {
             }}
             className={`schedule ${props.className}`}
         >
+            <ScheduleNav years={year} month={month} setMonth={setMonth} setYears={setYear} />
             {array?.map((data: IDateArray) => {
                 return (
                     <DateButton label={data?.date} key={data.key} />

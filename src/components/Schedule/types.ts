@@ -1,4 +1,4 @@
-export interface ScheduleProps {
+export interface IScheduleProps {
   label: string | undefined;
   id?: string | undefined;
   //children?: string | JSX.Element | JSX.Element[] | undefined
