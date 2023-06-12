@@ -1,5 +1,14 @@
 .DateButton {
-    font-size: 24px;
+    font-size: small;
+    font-weight: 600;
     background-color: red;
-    color:white
+    color:white;
+    border-radius: 100%;
+    border: 0px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    text-align: center;
+}
+.DateButton:hover {
+    background-color: blue;
 }

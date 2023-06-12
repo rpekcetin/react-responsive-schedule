@@ -1,4 +1,4 @@
-export interface DateButtonProps {
+export interface IDateButtonProps {
   label: string | number;
   className?: string;
 }

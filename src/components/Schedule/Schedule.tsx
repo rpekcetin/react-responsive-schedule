@@ -3,6 +3,7 @@ import './Schedule.css'
 import DateButton from './components/DateButton/DateButton'
 import { IDateArray, IScheduleProps } from './types'
 import ScheduleNav from './components/ScheduleNav/ScheduleNav'
+import "../Css/Flex-Grid.css";
 
 const Schedule = (props: IScheduleProps) => {
     const date = new Date();
@@ -28,29 +29,35 @@ const Schedule = (props: IScheduleProps) => {
     }, [0])
 
     return (
-        <div
-            id={props.id}
-            style={{
-                ...props.style,
-                padding: props.p,
-                paddingTop: props.pt,
-                paddingBottom: props.pb,
-                paddingRight: props.pr,
-                paddingLeft: props.pl,
-                margin: props.m,
-                marginTop: props.mt,
-                marginBottom: props.mb,
-                marginRight: props.mr,
-                marginLeft: props.ml
-            }}
-            className={`schedule ${props.className}`}
-        >
-            <ScheduleNav years={year} month={month} setMonth={setMonth} setYears={setYear} />
-            {array?.map((data: IDateArray) => {
-                return (
-                    <DateButton label={data?.date} key={data.key} />
-                )
-            })}
+        <div style={{width:'450px'}}>
+            <div
+                id={props.id}
+                style={{
+                    ...props.style,
+                    padding: props.p,
+                    paddingTop: props.pt,
+                    paddingBottom: props.pb,
+                    paddingRight: props.pr,
+                    paddingLeft: props.pl,
+                    margin: props.m,
+                    marginTop: props.mt,
+                    marginBottom: props.mb,
+                    marginRight: props.mr,
+                    marginLeft: props.ml
+                }}
+                className={`schedule ${props.className}`}
+            >
+                <ScheduleNav years={year} month={month} setMonth={setMonth} setYears={setYear} />
+                <div className='flex-grid date-button-container'>
+                    {array?.map((data: IDateArray, index: number) => {
+                        return (
+                            <div className='col-x container-item' key={data.key}>
+                                <DateButton label={data?.date} />
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
         </div>
     )
 }
