@@ -18,7 +18,8 @@ export interface IScheduleProps {
 
 export interface IDateArray {
   key: number | string;
-  month: string | number
-  year: string | number
-  date: string | number
+  day: string | undefined;
+  month: string | number;
+  year: string | number;
+  date: string | number;
 }
