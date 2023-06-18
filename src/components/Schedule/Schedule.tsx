@@ -4,6 +4,7 @@ import DateButton from './components/DateButton/DateButton'
 import { IDateArray, IScheduleProps } from './types'
 import ScheduleNav from './components/ScheduleNav/ScheduleNav'
 import "../Css/Flex-Grid.css";
+import "@fontsource/quicksand";
 
 const Schedule = (props: IScheduleProps) => {
     const date = new Date();
@@ -16,16 +17,26 @@ const Schedule = (props: IScheduleProps) => {
     const [dayCount, setDayCount] = useState<number>(new Date(year, month, 0).getDate())
     const [array, setArray] = useState<IDateArray[]>([])
 
+    const daysList = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const daysListReview = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
     const [previousDayCount, setPreviousDayCount] = useState<number>(new Date(month === 1 ? year - 1 : year, month === 1 ? 12 : month - 1, 0).getDate())
     const [previousArray, setPreviousArray] = useState<IDateArray[]>([])
     const [previousCount, setPreviousCount] = useState<number>(0)
 
     const [nextDayCount, setNextDayCount] = useState<number>(new Date(month === 12 ? year + 1 : year, month === 12 ? 1 : month + 1, 0).getDate())
-    const [nextArray, setNextArray] = useState<IDateArray[]>([])
     const [nextCount, setNextCount] = useState<number>(0)
+    const [nextArray, setNextArray] = useState<IDateArray[]>([])
 
     React.useEffect(() => {
-        const daysList = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        setArray([])
+        setPreviousArray([])
+        setNextArray([])
+        setDayCount(new Date(year, month, 0).getDate())
+        setNextDayCount(new Date(month === 12 ? year + 1 : year, month === 12 ? 1 : month + 1, 0).getDate())
+        setPreviousDayCount(new Date(month === 1 ? year - 1 : year, month === 1 ? 12 : month - 1, 0).getDate())
+        let newArray = []
+
         if (new Date(`${month}.${1}.${year}`).toLocaleString('en-us', { weekday: 'long' }) !== 'Monday') {
             setPreviousCount(daysList.findIndex((el) => el === new Date(`${month}.${1}.${year}`).toLocaleString('en-us', { weekday: 'long' })))
             for (let index = 1; index <= previousDayCount; index++) {
@@ -37,10 +48,12 @@ const Schedule = (props: IScheduleProps) => {
                     month: month === 1 ? 12 : month - 1
                 })
             }
+        } else {
+            setPreviousCount(0)
         }
 
         for (let index = 1; index <= dayCount; index++) {
-            array.push({
+            newArray.push({
                 key: `date-button-${index}`,
                 date: index,
                 day: new Date(`${month}.${index}.${year}`).toLocaleString('en-us', { weekday: 'long' }),
@@ -48,7 +61,6 @@ const Schedule = (props: IScheduleProps) => {
                 month
             })
         }
-
         if (new Date(`${month}.${dayCount}.${year}`).toLocaleString('en-us', { weekday: 'long' }) !== 'Sunday') {
             setNextCount(6 - daysList.findIndex((el) => el === new Date(`${month}.${dayCount}.${year}`).toLocaleString('en-us', { weekday: 'long' })))
             for (let index = 1; index <= nextDayCount; index++) {
@@ -60,12 +72,17 @@ const Schedule = (props: IScheduleProps) => {
                     month: month === 12 ? 1 : month + 1
                 })
             }
+        } else {
+            setNextCount(0)
         }
-        setArray([...array])
-    }, [0])
+        setArray([...newArray])
+        setNextArray([...nextArray])
+        setPreviousArray([...previousArray])
+        newArray = []
+    }, [month, dayCount])
 
     return (
-        <div style={{ maxWidth: '450px' }}>
+        <div className='schedule-box'>
             <div
                 id={props.id}
                 style={{
@@ -83,12 +100,24 @@ const Schedule = (props: IScheduleProps) => {
                 }}
                 className={`schedule ${props.className}`}
             >
-                <ScheduleNav years={year} month={month} setMonth={setMonth} setYears={setYear} />
+                <ScheduleNav
+                    years={year}
+                    month={month}
+                    setMonth={setMonth}
+                    setYears={setYear}
+                />
                 <div className='date-button-container'>
+                    {daysListReview?.map((data: string, index: number) => {
+                        return (
+                            <div className='container-item' key={`day-list-${index}`}>
+                                <DateButton label={data} />
+                            </div>
+                        )
+                    })}
                     {previousArray?.map((data: IDateArray, index: number) => {
                         return (
                             <div className='container-item' key={data.key}>
-                                <DateButton label={data?.date} />
+                                <DateButton className='previous-button' label={data?.date} />
                             </div>
                         )
                     }).slice((previousDayCount - previousCount), previousDayCount)}
@@ -102,7 +131,7 @@ const Schedule = (props: IScheduleProps) => {
                     {nextArray?.map((data: IDateArray, index: number) => {
                         return (
                             <div className='container-item' key={data.key}>
-                                <DateButton label={data?.date} />
+                                <DateButton className='next-button' label={data?.date} />
                             </div>
                         )
                     }).slice(0, nextCount)}

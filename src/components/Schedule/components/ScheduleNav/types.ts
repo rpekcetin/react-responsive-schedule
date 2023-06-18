@@ -1,3 +1,5 @@
+import { IDateArray } from "../../types";
+
 export interface IScheduleNavProps {
   years: number;
   month: number;

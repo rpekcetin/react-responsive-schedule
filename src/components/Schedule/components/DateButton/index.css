@@ -1,8 +1,9 @@
 .DateButton {
     font-size: small;
     font-weight: 600;
-    background-color: red;
-    color:white;
+    background-color: white;
+    font-family: 'QuickSand';
+    color:black;
     border-radius: 100%;
     border: 0px;
     width: 100%;
@@ -10,5 +11,12 @@
     text-align: center;
 }
 .DateButton:hover {
-    background-color: blue;
+    background-color: rgb(247, 246, 246);
+}
+.previous-button {
+    color: rgb(200, 200, 200) !important;
+}
+
+.next-button {
+    color: rgb(200, 200, 200) !important;
 }

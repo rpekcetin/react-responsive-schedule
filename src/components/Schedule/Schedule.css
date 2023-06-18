@@ -5,6 +5,10 @@
     padding:20px 14px;
     border-radius: 4px;
 }
+.schedule-box {
+    font-family: 'QuickSand';
+    max-width: 450px;
+}
 .date-button-container {
     justify-content: flex-start;
     display: grid;

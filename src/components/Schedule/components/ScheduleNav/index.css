@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    column-gap: 3px;
+}
+.nav-year {
+    margin-left: 5px;
+    font-weight: 600;
+}
+.button-previous {
+    padding:0px 5px;
+    padding-top:5px;
+    border-radius: 100%;
+    width: 100%;
+    aspect-ratio: 1/1;
+    text-align: center;
+}
+.button-next {
+    padding:0px 5px;
+    padding-top:5px;
+    border-radius: 100%;
+    width: 100%;
+    text-align: center;
+}
+.button-next:hover {
+    background-color: rgb(247, 246, 246);
+}
+.button-previous:hover {
+    background-color: rgb(247, 246, 246);
+}
