@@ -16,6 +16,10 @@ const ScheduleNav = (props: IScheduleNavProps) => {
         } else {
             setMonth(month + 1)
         }
+        props.setAnimate('animate-next')
+        setTimeout(() => {
+            props.setAnimate('')
+        }, 2500);
     }
 
     const handlePreviousMonth = () => {
@@ -25,6 +29,10 @@ const ScheduleNav = (props: IScheduleNavProps) => {
         } else {
             setMonth(month - 1)
         }
+        props.setAnimate('animate-prev')
+        setTimeout(() => {
+            props.setAnimate('')
+        }, 2500);
     }
 
     return (

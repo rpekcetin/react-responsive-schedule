@@ -11,6 +11,7 @@ const Schedule = (props: IScheduleProps) => {
     const currentYear = date.getFullYear();
     const currentMonth = date.getMonth() + 1;
     const currentDay = date.getDate()
+    const currentFullDate = `${currentDay}.${currentMonth}.${currentYear}`
     const [day, setDay] = useState<number>(currentDay)
     const [month, setMonth] = useState<number>(currentMonth)
     const [year, setYear] = useState<number>(currentYear)
@@ -27,6 +28,8 @@ const Schedule = (props: IScheduleProps) => {
     const [nextDayCount, setNextDayCount] = useState<number>(new Date(month === 12 ? year + 1 : year, month === 12 ? 1 : month + 1, 0).getDate())
     const [nextCount, setNextCount] = useState<number>(0)
     const [nextArray, setNextArray] = useState<IDateArray[]>([])
+
+    const [animate, setAnimate] = useState<'animate-prev' | 'animate-next' | ''>('')
 
     React.useEffect(() => {
         setArray([])
@@ -105,8 +108,9 @@ const Schedule = (props: IScheduleProps) => {
                     month={month}
                     setMonth={setMonth}
                     setYears={setYear}
+                    setAnimate={setAnimate}
                 />
-                <div className='date-button-container'>
+                <div className={`date-button-container ${animate}`}>
                     {daysListReview?.map((data: string, index: number) => {
                         return (
                             <div className='container-item' key={`day-list-${index}`}>
@@ -124,7 +128,7 @@ const Schedule = (props: IScheduleProps) => {
                     {array?.map((data: IDateArray, index: number) => {
                         return (
                             <div className='container-item' id={`current-button-${index}`} key={data.key}>
-                                <DateButton label={data?.date} />
+                                <DateButton label={data?.date} className={currentFullDate === `${data.date + '.' + data.month + '.' + data.year}` ? 'current-date-button' : ''} />
                             </div>
                         )
                     })}

@@ -9,9 +9,11 @@
     width: 100%;
     aspect-ratio: 1/1;
     text-align: center;
+    transition: all 0.3s;
 }
 .DateButton:hover {
     background-color: rgb(247, 246, 246);
+    color:black;
 }
 .previous-button {
     color: rgb(200, 200, 200) !important;
@@ -19,4 +21,9 @@
 
 .next-button {
     color: rgb(200, 200, 200) !important;
+}
+.current-date-button {
+    background-color: #7367F0;
+    color: white;
+    transition: all 0.3s;
 }

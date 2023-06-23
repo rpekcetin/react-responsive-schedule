@@ -5,4 +5,5 @@ export interface IScheduleNavProps {
   month: number;
   setMonth: React.Dispatch<React.SetStateAction<number>>;
   setYears: React.Dispatch<React.SetStateAction<number>>;
+  setAnimate: React.Dispatch<React.SetStateAction<'animate-prev' | 'animate-next' | ''>>;
 }
