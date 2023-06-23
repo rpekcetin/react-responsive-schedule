@@ -1,4 +1,4 @@
-import { IDateArray } from "../../types";
+import { IDateArray } from "../../types/types";
 
 export interface IScheduleNavProps {
   years: number;

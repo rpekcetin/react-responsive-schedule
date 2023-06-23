@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import './Schedule.css'
-import DateButton from './components/DateButton/DateButton'
-import { IDateArray, IScheduleProps } from './types'
-import ScheduleNav from './components/ScheduleNav/ScheduleNav'
-import "../Css/Flex-Grid.css";
+import '../css/Schedule.css'
+import DateButton from './../components/DateButton/DateButton'
+import { IDateArray, IScheduleProps } from '../types/types'
+import ScheduleNav from './../components/ScheduleNav/ScheduleNav'
+import "../../Css/Flex-Grid.css";
 import "@fontsource/quicksand";
 
 const Schedule = (props: IScheduleProps) => {
@@ -110,20 +110,20 @@ const Schedule = (props: IScheduleProps) => {
                     {daysListReview?.map((data: string, index: number) => {
                         return (
                             <div className='container-item' key={`day-list-${index}`}>
-                                <DateButton label={data} />
+                                <DateButton label={data} id={`days-button-${index}`} />
                             </div>
                         )
                     })}
                     {previousArray?.map((data: IDateArray, index: number) => {
                         return (
                             <div className='container-item' key={data.key}>
-                                <DateButton className='previous-button' label={data?.date} />
+                                <DateButton className='previous-button' id={`prev-button-${index}`} label={data?.date} />
                             </div>
                         )
                     }).slice((previousDayCount - previousCount), previousDayCount)}
                     {array?.map((data: IDateArray, index: number) => {
                         return (
-                            <div className='container-item' key={data.key}>
+                            <div className='container-item' id={`current-button-${index}`} key={data.key}>
                                 <DateButton label={data?.date} />
                             </div>
                         )
@@ -131,7 +131,7 @@ const Schedule = (props: IScheduleProps) => {
                     {nextArray?.map((data: IDateArray, index: number) => {
                         return (
                             <div className='container-item' key={data.key}>
-                                <DateButton className='next-button' label={data?.date} />
+                                <DateButton className='next-button' id={`next-button-${index}`} label={data?.date} />
                             </div>
                         )
                     }).slice(0, nextCount)}
