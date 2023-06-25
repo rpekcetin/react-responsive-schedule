@@ -1,1 +1,1 @@
-export { default } from "./ScheduleNav";
+export { default } from "./main/ScheduleNav";

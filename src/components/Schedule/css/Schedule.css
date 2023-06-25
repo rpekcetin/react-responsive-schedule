@@ -17,17 +17,17 @@
     grid-row-gap: 5px;
 }
 .animate-next {
-    animation: slide-appear-next 2.5s;
+    animation: slide-appear-next 1s;
 }
 .animate-prev {
-    animation: slide-appear-prev 2.5s;
+    animation: slide-appear-prev 1s;
 }
 @keyframes slide-appear-next {
     0% {
         transform: translateX(0%);
         opacity: 1;
     }
-    40% {
+    25% {
         opacity: 0;
     }
     50% {
@@ -35,7 +35,7 @@
         opacity: 0;
     }
     75% {
-        transform: translateX(100%);
+        transform: translateX(80%);
         opacity: 0;
     }
     100% {
@@ -49,12 +49,12 @@
         transform: translateX(0%);
         opacity: 1;
     }
-    40% {
+    25% {
         transform: translateX(80%);
         opacity: 0;
     }
     50% {
-        transform: translateX(-100%);
+        transform: translateX(-80%);
         opacity: 0;
     }
     75% {

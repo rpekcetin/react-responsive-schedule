@@ -1,0 +1,74 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    column-gap: 3px;
+    position: relative;
+}
+.nav-year {
+    margin-left: 5px;
+    font-weight: 600;
+}
+.button-previous {
+    padding:0px 5px;
+    padding-top:5px;
+    border-radius: 100%;
+    width: 100%;
+    aspect-ratio: 1/1;
+    text-align: center;
+}
+.button-next {
+    padding:0px 5px;
+    padding-top:5px;
+    border-radius: 100%;
+    width: 100%;
+    text-align: center;
+}
+.button-next:hover {
+    background-color: rgb(247, 246, 246);
+}
+.button-previous:hover {
+    background-color: rgb(247, 246, 246);
+}
+.mode-container {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    transition: all 2s;
+}
+.feather-moon:hover {
+    animation: rotate-moon 1.7s;
+}
+@keyframes rotate-moon {
+    0% {
+        transform:rotate(0deg)
+    }
+    60% {
+        transform:rotate(380deg)
+    }
+    80% {
+        transform: rotate(350deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.feather-sun:hover {
+    animation: rotate-moon 1.7s;
+}
+@keyframes rotate-sun {
+    0% {
+        transform:rotate(0deg)
+    }
+    60% {
+        transform:rotate(380deg)
+    }
+    80% {
+        transform: rotate(350deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

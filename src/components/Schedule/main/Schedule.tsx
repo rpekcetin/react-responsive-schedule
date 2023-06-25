@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../css/Schedule.css'
 import DateButton from './../components/DateButton/DateButton'
 import { IDateArray, IScheduleProps } from '../types/types'
-import ScheduleNav from './../components/ScheduleNav/ScheduleNav'
+import ScheduleNav from '../components/ScheduleNav/main/ScheduleNav'
 import "../../Css/Flex-Grid.css";
 import "@fontsource/quicksand";
 
@@ -30,6 +30,8 @@ const Schedule = (props: IScheduleProps) => {
     const [nextArray, setNextArray] = useState<IDateArray[]>([])
 
     const [animate, setAnimate] = useState<'animate-prev' | 'animate-next' | ''>('')
+
+    const [mode, setMode] = useState<'dark' | 'light'>('light')
 
     React.useEffect(() => {
         setArray([])
@@ -109,6 +111,8 @@ const Schedule = (props: IScheduleProps) => {
                     setMonth={setMonth}
                     setYears={setYear}
                     setAnimate={setAnimate}
+                    mode={mode}
+                    setMode={setMode}
                 />
                 <div className={`date-button-container ${animate}`}>
                     {daysListReview?.map((data: string, index: number) => {
