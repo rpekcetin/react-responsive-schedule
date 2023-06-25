@@ -31,7 +31,7 @@ const Schedule = (props: IScheduleProps) => {
 
     const [animate, setAnimate] = useState<'animate-prev' | 'animate-next' | ''>('')
 
-    const [mode, setMode] = useState<'dark' | 'light'>('light')
+    const [mode, setMode] = useState<'dark' | 'light' | ''>('')
 
     React.useEffect(() => {
         setArray([])
@@ -87,7 +87,8 @@ const Schedule = (props: IScheduleProps) => {
     }, [month, dayCount])
 
     return (
-        <div className='schedule-box'>
+        <div className={`schedule-box`}>
+            <div className={mode === 'dark' ? 'dark-box' : mode === '' ? '' : 'light-box'} />
             <div
                 id={props.id}
                 style={{
@@ -103,7 +104,7 @@ const Schedule = (props: IScheduleProps) => {
                     marginRight: props.mr,
                     marginLeft: props.ml
                 }}
-                className={`schedule ${props.className}`}
+                className={`schedule ${props?.className}`}
             >
                 <ScheduleNav
                     years={year}
@@ -118,28 +119,28 @@ const Schedule = (props: IScheduleProps) => {
                     {daysListReview?.map((data: string, index: number) => {
                         return (
                             <div className='container-item' key={`day-list-${index}`}>
-                                <DateButton label={data} id={`days-button-${index}`} />
+                                <DateButton className={mode === 'dark' ? 'DarkDateButton' : 'DateButton'} label={data} id={`days-button-${index}`} />
                             </div>
                         )
                     })}
                     {previousArray?.map((data: IDateArray, index: number) => {
                         return (
                             <div className='container-item' key={data.key}>
-                                <DateButton className='previous-button' id={`prev-button-${index}`} label={data?.date} />
+                                <DateButton className={`previous-button ${mode === 'dark' ? 'DarkDateButton previous-button-dark' : 'DateButton'}`} id={`prev-button-${index}`} label={data?.date} />
                             </div>
                         )
                     }).slice((previousDayCount - previousCount), previousDayCount)}
                     {array?.map((data: IDateArray, index: number) => {
                         return (
                             <div className='container-item' id={`current-button-${index}`} key={data.key}>
-                                <DateButton label={data?.date} className={currentFullDate === `${data.date + '.' + data.month + '.' + data.year}` ? 'current-date-button' : ''} />
+                                <DateButton label={data?.date} className={`${mode === 'dark' ? 'DarkDateButton' : 'DateButton'} ${currentFullDate === `${data.date + '.' + data.month + '.' + data.year}` ? mode === 'dark' ? 'current-dark-date-button' : 'current-date-button' : ''}`} />
                             </div>
                         )
                     })}
                     {nextArray?.map((data: IDateArray, index: number) => {
                         return (
                             <div className='container-item' key={data.key}>
-                                <DateButton className='next-button' id={`next-button-${index}`} label={data?.date} />
+                                <DateButton className={`next-button ${mode === 'dark' ? 'DarkDateButton next-button-dark' : 'DateButton'}`} id={`next-button-${index}`} label={data?.date} />
                             </div>
                         )
                     }).slice(0, nextCount)}

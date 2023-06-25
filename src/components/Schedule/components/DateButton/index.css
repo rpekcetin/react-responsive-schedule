@@ -27,3 +27,34 @@
     color: white;
     transition: all 0.3s;
 }
+.DarkDateButton {
+    font-size: small;
+    font-weight: 600;
+    font-family: 'QuickSand';
+    border-radius: 100%;
+    border: 0px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    text-align: center;
+    transition: all 0.3s;
+    background-color: #212121;
+    color: white;
+}
+.DarkDateButton:hover {
+    background-color: #535353;
+    color:#1DB954;
+}
+.current-dark-date-button{
+    background-color: #1DB954;
+    color: white;
+    transition: all 0.3s;
+}
+.current-dark-date-button:hover{
+    color: white;
+}
+.previous-button-dark{
+    color:#B3B3B3;
+}
+.next-button-dark{
+    color:#B3B3B3;
+}

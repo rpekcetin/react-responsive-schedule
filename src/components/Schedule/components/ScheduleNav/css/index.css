@@ -72,3 +72,19 @@
         transform: rotate(360deg);
     }
 }
+
+.dark-span {
+    color:white;
+}
+.dark-button-prev {
+  color:#1DB954;
+}
+.dark-button-next {
+  color:#1DB954;
+}
+.dark-button-next:hover {
+    background-color: #535353;
+}
+.dark-button-prev:hover {
+    background-color: #535353;
+}

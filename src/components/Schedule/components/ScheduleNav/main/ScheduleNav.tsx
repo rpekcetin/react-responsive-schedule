@@ -43,24 +43,24 @@ const ScheduleNav = (props: IScheduleNavProps) => {
     }
 
     const handleMode = () => {
-        props.setMode(props.mode === 'light' ? 'dark' : 'light')
+        props.setMode(props.mode === 'light' ? 'dark' : props.mode === '' ? 'dark' : 'light')
     }
 
     return (
         <div className='container'>
             <div className='mode-container' onClick={handleMode}>
-                {props.mode !== 'light' ? (<Sun />) : (<Moon />)}
+                {props.mode !== 'light' ? props.mode === '' ? (<Moon />) : (<Sun />) : (<Moon />)}
             </div>
             <div className='flex-item'>
                 <div className='container'>
-                    <div onClick={active ? handlePreviousMonth : undefined} className='button-previous'>
+                    <div onClick={active ? handlePreviousMonth : undefined} className={`button-previous ${props.mode === 'dark' ? 'dark-button-prev' : ''}`}>
                         <ChevronLeft />
                     </div>
                     <div className='flex-item'>
-                        <span className='nav-month'>{monthString}</span>
-                        <span className='nav-year'>{props.years}</span>
+                        <span className={`nav-month ${props.mode === 'dark' ? 'dark-span' : ''}`}>{monthString}</span>
+                        <span className={`nav-year ${props.mode === 'dark' ? 'dark-span' : ''}`}>{props.years}</span>
                     </div>
-                    <div onClick={active ? handleNextMonth : undefined} className='button-next'>
+                    <div onClick={active ? handleNextMonth : undefined} className={`button-next ${props.mode === 'dark' ? 'dark-button-next' : ''}`}>
                         <ChevronRight />
                     </div>
                 </div>

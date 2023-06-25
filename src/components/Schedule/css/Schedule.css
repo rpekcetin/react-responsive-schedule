@@ -8,6 +8,7 @@
 .schedule-box {
     font-family: 'QuickSand';
     max-width: 450px;
+    position: relative;
 }
 .date-button-container {
     justify-content: flex-start;
@@ -15,6 +16,7 @@
     grid-template-columns: repeat(7, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
+    position: relative;
 }
 .animate-next {
     animation: slide-appear-next 1s;
@@ -22,6 +24,7 @@
 .animate-prev {
     animation: slide-appear-prev 1s;
 }
+
 @keyframes slide-appear-next {
     0% {
         transform: translateX(0%);
@@ -65,3 +68,84 @@
         opacity: 1;
     }
 }
+
+.dark-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  
+  .dark-box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: #212121;
+    border-radius: 50%;
+    opacity: 0;
+    animation: circle-dark 0.3s linear forwards;
+  }
+  
+  @keyframes circle-dark {
+    0% {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      width: 300%;
+      height: 300%;
+      background-color: #212121;
+    }
+  }
+
+  .light-box {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  
+  .light-box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: #212121;
+    border-radius: 50%;
+    opacity: 0;
+    animation: circle-light 0.3s linear forwards;
+  }
+  
+  @keyframes circle-light {
+    0% {
+        opacity: 1;
+        width: 300%;
+        height: 300%;
+        background-color: #212121;
+        
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+  }
