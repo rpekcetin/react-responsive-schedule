@@ -19,10 +19,10 @@
     position: relative;
 }
 .animate-next {
-    animation: slide-appear-next 1s;
+    animation: slide-appear-next ease 1s forwards;
 }
 .animate-prev {
-    animation: slide-appear-prev 1s;
+    animation: slide-appear-prev ease 1s forwards;
 }
 
 @keyframes slide-appear-next {
@@ -30,8 +30,8 @@
         transform: translateX(0%);
         opacity: 1;
     }
-    25% {
-        opacity: 0;
+    10% {
+      opacity: 0;
     }
     50% {
         transform: translateX(-80%);
@@ -51,6 +51,9 @@
     0% {
         transform: translateX(0%);
         opacity: 1;
+    }
+    10% {
+      opacity: 0;
     }
     25% {
         transform: translateX(80%);

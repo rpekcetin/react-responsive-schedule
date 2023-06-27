@@ -18,6 +18,7 @@
     width: 100%;
     aspect-ratio: 1/1;
     text-align: center;
+    cursor: pointer;
 }
 .button-next {
     padding:0px 5px;
@@ -25,6 +26,7 @@
     border-radius: 100%;
     width: 100%;
     text-align: center;
+    cursor: pointer;
 }
 .button-next:hover {
     background-color: rgb(247, 246, 246);

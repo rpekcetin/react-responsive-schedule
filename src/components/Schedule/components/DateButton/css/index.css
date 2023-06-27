@@ -10,6 +10,7 @@
     aspect-ratio: 1/1;
     text-align: center;
     transition: all 0.3s;
+    cursor: pointer;
 }
 .DateButton:hover {
     background-color: rgb(247, 246, 246);
@@ -39,10 +40,11 @@
     transition: all 0.3s;
     background-color: #212121;
     color: white;
+    cursor: pointer;
 }
 .DarkDateButton:hover {
     background-color: #535353;
-    color:#1DB954;
+    color: white;
 }
 .current-dark-date-button{
     background-color: #1DB954;
