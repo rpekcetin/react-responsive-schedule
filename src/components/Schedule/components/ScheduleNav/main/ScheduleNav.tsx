@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import ChevronRight from '../icons/ChevronRight'
 import ChevronLeft from '../icons/ChevronLeft'
 import { IScheduleNavProps } from '../types/types'
-import '../css/index.css'
 import Moon from '../icons/Moon'
 import Sun from '../icons/Sun'
+import '../css/index.css'
 
 const ScheduleNav = (props: IScheduleNavProps) => {
     const { month, setMonth, years, setYears } = props

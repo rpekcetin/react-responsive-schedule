@@ -34,7 +34,7 @@ const Schedule = (props: IScheduleProps) => {
 
     const [mode, setMode] = useState<'dark' | 'light' | ''>('')
 
-    const [noteVisibility, setNoteVisibility] = useState<boolean>(false)
+    const [noteVisibility, setNoteVisibility] = useState<boolean>(true)
     const [selectedDay, setSelectedDay] = useState<IDateArray>(
         {
             key: "current-selected",

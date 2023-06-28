@@ -1,6 +1,44 @@
-.title {
-    text-align: center;
+.container-note {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.day {
+.title-note {
+    text-align: center;
+    margin-top: 10px;
+}
+.day-note {
     font-weight: 700;
+}
+.back-note {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding:0px 5px;
+    padding-top:5px;
+    border-radius: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+.back-note:hover {
+    background-color: rgb(247, 246, 246);
+}
+.textarea-note{
+    margin-top: 20px;
+    width: 100%;
+}
+.textarea-note > textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 300px;
+    max-height: 400px;
+    border: 0px;
+    font-size: medium;
+    font-family: 'QuickSand';
+}
+.textarea-note > textarea:focus {
+    border: 0px;
+    outline: none;
 }
