@@ -6,4 +6,7 @@ export interface INoteProps {
   setNoteVisibility: React.Dispatch<React.SetStateAction<boolean>>;
   month: number;
   year: number;
+  currentNote: string;
+  setCurrentNote: React.Dispatch<React.SetStateAction<string>>;
+  mode: string;
 }

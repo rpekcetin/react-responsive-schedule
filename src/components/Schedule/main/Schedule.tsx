@@ -45,6 +45,8 @@ const Schedule = (props: IScheduleProps) => {
         }
     )
 
+    const [currentNote, setCurrentNote] = useState<string>('')
+
     React.useEffect(() => {
         setArray([])
         setPreviousArray([])
@@ -132,6 +134,9 @@ const Schedule = (props: IScheduleProps) => {
                             month={currentMonth}
                             year={currentMonth}
                             selectedDay={selectedDay}
+                            currentNote={currentNote}
+                            mode={mode}
+                            setCurrentNote={setCurrentNote}
                         />
                     ) : (
                         <>
