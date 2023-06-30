@@ -8,25 +8,21 @@ import "@fontsource/quicksand";
 import NoteCard from '../components/NoteCard'
 
 const Schedule = (props: IScheduleProps) => {
-    const date = new Date();
-    const currentYear = date.getFullYear();
-    const currentMonth = date.getMonth() + 1;
-    const currentDay = date.getDate()
+    const currentYear: number = new Date().getFullYear();
+    const currentMonth: number = new Date().getMonth() + 1;
+    const currentDay: number = new Date().getDate()
     const currentFullDate = `${currentDay}.${currentMonth}.${currentYear}`
-    const [day, setDay] = useState<number>(currentDay)
-    const [month, setMonth] = useState<number>(currentMonth)
-    const [year, setYear] = useState<number>(currentYear)
-    const [dayCount, setDayCount] = useState<number>(new Date(year, month, 0).getDate())
+    //const [day, setDay] = useState<number>(currentDay)
+    const [month, setMonth] = useState<number>(currentMonth ?? 0)
+    const [year, setYear] = useState<number>(currentYear ?? 0)
+    const [dayCount, setDayCount] = useState<number>(new Date(year, month, 0).getDate() ?? 0)
     const [array, setArray] = useState<IDateArray[]>([])
 
-    const daysList = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-    const daysListReview = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
-    const [previousDayCount, setPreviousDayCount] = useState<number>(new Date(month === 1 ? year - 1 : year, month === 1 ? 12 : month - 1, 0).getDate())
+    const [previousDayCount, setPreviousDayCount] = useState<number>(new Date(month === 1 ? year - 1 : year, month === 1 ? 12 : month - 1, 0).getDate() ?? 0)
     const [previousArray, setPreviousArray] = useState<IDateArray[]>([])
     const [previousCount, setPreviousCount] = useState<number>(0)
 
-    const [nextDayCount, setNextDayCount] = useState<number>(new Date(month === 12 ? year + 1 : year, month === 12 ? 1 : month + 1, 0).getDate())
+    const [nextDayCount, setNextDayCount] = useState<number>(new Date(month === 12 ? year + 1 : year, month === 12 ? 1 : month + 1, 0).getDate() ?? 0)
     const [nextCount, setNextCount] = useState<number>(0)
     const [nextArray, setNextArray] = useState<IDateArray[]>([])
 
@@ -46,6 +42,9 @@ const Schedule = (props: IScheduleProps) => {
     )
 
     const [currentNote, setCurrentNote] = useState<string>('')
+
+    const daysList = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const daysListReview = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
     React.useEffect(() => {
         setArray([])

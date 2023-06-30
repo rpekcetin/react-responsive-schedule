@@ -1,1 +1,1 @@
-export {default} from './main/Schedule'
+export { default } from './main/Schedule'
