@@ -14,6 +14,12 @@ export interface IScheduleProps {
   mt?: string | undefined;
   mb?: string | undefined;
   style?: React.CSSProperties | undefined;
+  onClickAdd?: Function;
+  onClickClear?: Function;
+  onClickClose?: Function;
+  onClickDay?: Function;
+  onClickPreviousMonth?: Function;
+  onClickNextMonth?: Function;
 }
 
 export interface IDateArray {

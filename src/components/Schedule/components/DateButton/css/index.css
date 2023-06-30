@@ -60,3 +60,9 @@
 .next-button-dark{
     color:#B3B3B3;
 }
+.DateButton.customDate {
+    color:#7367F0;
+}
+.DarkDateButton.customDate {
+    color:#1DB954;
+}

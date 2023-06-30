@@ -11,6 +11,9 @@
     margin-left: 5px;
     font-weight: 600;
 }
+.nav-month {
+    color: #7367F0;
+}
 .button-previous {
     padding:0px 5px;
     padding-top:5px;
@@ -76,17 +79,20 @@
 }
 
 .dark-span {
-    color:white;
+  color: white;
 }
+.dark-span-month {
+    color: #1DB954;
+  }
 .dark-button-prev {
-  color:#1DB954;
+  color: white;
 }
 .dark-button-next {
-  color:#1DB954;
+  color: white;
 }
 .dark-button-next:hover {
-    background-color: #535353;
+  background-color: #535353;
 }
 .dark-button-prev:hover {
-    background-color: #535353;
+  background-color: #535353;
 }

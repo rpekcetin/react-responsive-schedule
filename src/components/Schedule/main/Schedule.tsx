@@ -34,7 +34,7 @@ const Schedule = (props: IScheduleProps) => {
 
     const [mode, setMode] = useState<'dark' | 'light' | ''>('')
 
-    const [noteVisibility, setNoteVisibility] = useState<boolean>(true)
+    const [noteVisibility, setNoteVisibility] = useState<boolean>(false)
     const [selectedDay, setSelectedDay] = useState<IDateArray>(
         {
             key: "current-selected",
@@ -141,6 +141,8 @@ const Schedule = (props: IScheduleProps) => {
                     ) : (
                         <>
                             <ScheduleNav
+                                onClickPreviousMonth={props.onClickPreviousMonth}
+                                onClickNextMonth={props.onClickNextMonth}
                                 years={year}
                                 month={month}
                                 setMonth={setMonth}
@@ -153,7 +155,7 @@ const Schedule = (props: IScheduleProps) => {
                                 {daysListReview?.map((data: string, index: number) => {
                                     return (
                                         <div className='container-item' key={`day-list-${index}`}>
-                                            <DateButton className={mode === 'dark' ? 'DarkDateButton' : 'DateButton'} label={data} id={`days-button-${index}`} />
+                                            <DateButton className={mode === 'dark' ? 'DarkDateButton customDate' : 'DateButton customDate'} label={data} id={`days-button-${index}`} />
                                         </div>
                                     )
                                 })}

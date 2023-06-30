@@ -9,5 +9,7 @@ export interface IScheduleNavProps {
     React.SetStateAction<"animate-prev" | "animate-next" | "">
   >;
   mode: string;
-  setMode: React.Dispatch<React.SetStateAction<"dark" | "light" | ''>>;
+  setMode: React.Dispatch<React.SetStateAction<"dark" | "light" | "">>;
+  onClickPreviousMonth?: Function;
+  onClickNextMonth?: Function;
 }
