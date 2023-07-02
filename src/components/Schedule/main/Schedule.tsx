@@ -149,6 +149,8 @@ const Schedule = (props: IScheduleProps) => {
                                 setAnimate={setAnimate}
                                 mode={mode}
                                 setMode={setMode}
+                                currentMonth={props?.currentMonth}
+                                setCurrentMonth={props?.setCurrentMonth}
                             />
                             <div className={`date-button-container ${animate}`}>
                                 {daysListReview?.map((data: string, index: number) => {

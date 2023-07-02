@@ -7,7 +7,7 @@ import Sun from '../icons/Sun'
 import '../css/index.css'
 
 const ScheduleNav = (props: IScheduleNavProps) => {
-    const { month, setMonth, years, setYears, setAnimate, setMode, mode, onClickPreviousMonth, onClickNextMonth } = props
+    const { month, setMonth, years, setYears, setAnimate, setMode, mode, onClickPreviousMonth, onClickNextMonth, setCurrentMonth } = props
     const date = new Date(years, month - 1, 1)
     const monthString = date.toLocaleString('original', { month: 'long' })
     const [active, setActive] = useState(true)
@@ -22,10 +22,18 @@ const ScheduleNav = (props: IScheduleNavProps) => {
         if (month === 12) {
             setYears(years + 1)
             setMonth(1)
-            return { month: 1, year: years + 1 }
+            if (setCurrentMonth) {
+                const date = new Date(years + 1, 1, 1)
+                const stringMonth = date.toLocaleString('original', { month: 'long' })
+                setCurrentMonth({ number: 1, string: stringMonth })
+            }
         } else {
             setMonth(month + 1)
-            return { month: month + 1, year: years }
+            if (setCurrentMonth) {
+                const date = new Date(years, month + 2, 1)
+                const stringMonth = date.toLocaleString('original', { month: 'long' })
+                setCurrentMonth({ number: month + 1, string: stringMonth })
+            }
         }
     }
 
@@ -39,10 +47,18 @@ const ScheduleNav = (props: IScheduleNavProps) => {
         if (month === 1) {
             setYears(years - 1)
             setMonth(12)
-            return { month: 12, year: years - 1 }
+            if (setCurrentMonth) {
+                const date = new Date(years - 1, 12, 1)
+                const stringMonth = date.toLocaleString('original', { month: 'long' })
+                setCurrentMonth({ number: 12, string: stringMonth })
+            }
         } else {
             setMonth(month - 1)
-            return { month: month - 1, year: years }
+            if (setCurrentMonth) {
+                const date = new Date(years, month - 2, 1)
+                const stringMonth = date.toLocaleString('original', { month: 'long' })
+                setCurrentMonth({ number: month - 1, string: stringMonth })
+            }
         }
     }
 

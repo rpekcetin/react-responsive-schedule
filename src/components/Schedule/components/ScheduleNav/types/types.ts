@@ -12,4 +12,8 @@ export interface IScheduleNavProps {
   setMode: React.Dispatch<React.SetStateAction<"dark" | "light" | "">>;
   onClickPreviousMonth?: Function;
   onClickNextMonth?: Function;
+  currentMonth?: string;
+  setCurrentMonth?: React.Dispatch<
+    React.SetStateAction<{ number: number; string: string }>
+  >;
 }

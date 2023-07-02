@@ -14,6 +14,10 @@ export interface IScheduleProps {
   mt?: string | undefined;
   mb?: string | undefined;
   style?: React.CSSProperties | undefined;
+  currentMonth?: string;
+  setCurrentMonth?: React.Dispatch<
+    React.SetStateAction<{ number: number; string: string }>
+  >;
   onClickAdd?: Function;
   onClickClear?: Function;
   onClickClose?: Function;
