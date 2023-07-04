@@ -1,3 +1,8 @@
+export interface ICurrentMontProp {
+  number: number;
+  string: string;
+}
+
 export interface IScheduleProps {
   label: string | undefined;
   id?: string | undefined;
@@ -14,10 +19,8 @@ export interface IScheduleProps {
   mt?: string | undefined;
   mb?: string | undefined;
   style?: React.CSSProperties | undefined;
-  currentMonth?: string;
-  setCurrentMonth?: React.Dispatch<
-    React.SetStateAction<{ number: number; string: string }>
-  >;
+  currentMonth?: ICurrentMontProp;
+  setCurrentMonth?: React.Dispatch<React.SetStateAction<ICurrentMontProp>>;
   onClickAdd?: Function;
   onClickClear?: Function;
   onClickClose?: Function;

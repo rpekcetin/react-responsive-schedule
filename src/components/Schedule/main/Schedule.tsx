@@ -31,6 +31,7 @@ const Schedule = (props: IScheduleProps) => {
     const [mode, setMode] = useState<'dark' | 'light' | ''>('')
 
     const [noteVisibility, setNoteVisibility] = useState<boolean>(false)
+    const [clickedNote, setClickedNote] = useState<boolean>(false)
     const [selectedDay, setSelectedDay] = useState<IDateArray>(
         {
             key: "current-selected",
@@ -101,13 +102,18 @@ const Schedule = (props: IScheduleProps) => {
 
     const handleSelectedDay = (item: IDateArray) => {
         setSelectedDay(item)
-        setNoteVisibility(true)
+        setClickedNote(true)
+        setTimeout(() => {
+            setNoteVisibility(true)
+        }, 250);
+        setTimeout(() => {
+            setClickedNote(false)
+        }, 500);
     }
 
     return (
         <div className={`schedule-box`}>
             <div className={mode === 'dark' ? 'dark-box' : mode === '' ? '' : 'light-box'} />
-
             <div
                 id={props.id}
                 style={{
@@ -123,7 +129,7 @@ const Schedule = (props: IScheduleProps) => {
                     marginRight: props.mr,
                     marginLeft: props.ml
                 }}
-                className={`schedule ${props?.className}`}
+                className={`schedule ${clickedNote ? 'note-box' : null}`}
             >
                 {
                     noteVisibility ? (
@@ -136,6 +142,7 @@ const Schedule = (props: IScheduleProps) => {
                             currentNote={currentNote}
                             mode={mode}
                             setCurrentNote={setCurrentNote}
+                            setClickedNote={setClickedNote}
                         />
                     ) : (
                         <>

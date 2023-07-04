@@ -1,4 +1,4 @@
-import { IDateArray } from "../../../types/types";
+import { ICurrentMontProp, IDateArray } from "../../../types/types";
 
 export interface IScheduleNavProps {
   years: number;
@@ -12,8 +12,6 @@ export interface IScheduleNavProps {
   setMode: React.Dispatch<React.SetStateAction<"dark" | "light" | "">>;
   onClickPreviousMonth?: Function;
   onClickNextMonth?: Function;
-  currentMonth?: string;
-  setCurrentMonth?: React.Dispatch<
-    React.SetStateAction<{ number: number; string: string }>
-  >;
+  currentMonth?: ICurrentMontProp;
+  setCurrentMonth?: React.Dispatch<React.SetStateAction<ICurrentMontProp>>;
 }

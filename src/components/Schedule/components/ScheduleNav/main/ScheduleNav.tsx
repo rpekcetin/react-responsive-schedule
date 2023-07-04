@@ -18,19 +18,19 @@ const ScheduleNav = (props: IScheduleNavProps) => {
         setTimeout(() => {
             setAnimate('')
             setActive(true)
-        }, 1050);
+        }, 650);
         if (month === 12) {
             setYears(years + 1)
             setMonth(1)
             if (setCurrentMonth) {
-                const date = new Date(years + 1, 1, 1)
+                const date = new Date(years + 1, 0, 1)
                 const stringMonth = date.toLocaleString('original', { month: 'long' })
                 setCurrentMonth({ number: 1, string: stringMonth })
             }
         } else {
             setMonth(month + 1)
             if (setCurrentMonth) {
-                const date = new Date(years, month + 2, 1)
+                const date = new Date(years, month, 1)
                 const stringMonth = date.toLocaleString('original', { month: 'long' })
                 setCurrentMonth({ number: month + 1, string: stringMonth })
             }
@@ -43,12 +43,12 @@ const ScheduleNav = (props: IScheduleNavProps) => {
         setTimeout(() => {
             setAnimate('')
             setActive(true)
-        }, 1050);
+        }, 650);
         if (month === 1) {
             setYears(years - 1)
             setMonth(12)
             if (setCurrentMonth) {
-                const date = new Date(years - 1, 12, 1)
+                const date = new Date(years - 1, 11, 1)
                 const stringMonth = date.toLocaleString('original', { month: 'long' })
                 setCurrentMonth({ number: 12, string: stringMonth })
             }

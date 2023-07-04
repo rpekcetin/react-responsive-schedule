@@ -9,4 +9,5 @@ export interface INoteProps {
   currentNote: string;
   setCurrentNote: React.Dispatch<React.SetStateAction<string>>;
   mode: string;
+  setClickedNote: React.Dispatch<React.SetStateAction<boolean>>;
 }

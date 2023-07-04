@@ -11,7 +11,8 @@ const NoteCard = (props: INoteProps) => {
         mode,
         currentNote,
         setCurrentNote,
-        setNoteVisibility
+        setNoteVisibility,
+        setClickedNote
     } = props
 
     //this object get selected full date and then create string date format 
@@ -25,7 +26,13 @@ const NoteCard = (props: INoteProps) => {
 
     //this func close note area and return calendar when user click chevron icon
     const handleBack = () => {
-        setNoteVisibility(false)
+        setClickedNote(true)
+        setTimeout(() => {
+            setNoteVisibility(false)
+        }, 250);
+        setTimeout(() => {
+            setClickedNote(false)
+        }, 500);
     }
 
     //this func update state when user write something inside textarea
