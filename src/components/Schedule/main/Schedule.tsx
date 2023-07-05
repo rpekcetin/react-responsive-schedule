@@ -12,7 +12,7 @@ const Schedule = (props: IScheduleProps) => {
     const currentMonth: number = new Date().getMonth() + 1;
     const currentDay: number = new Date().getDate()
     const currentFullDate = `${currentDay}.${currentMonth}.${currentYear}`
-    //const [day, setDay] = useState<number>(currentDay)
+
     const [month, setMonth] = useState<number>(currentMonth ?? 0)
     const [year, setYear] = useState<number>(currentYear ?? 0)
     const [dayCount, setDayCount] = useState<number>(new Date(year, month, 0).getDate() ?? 0)
@@ -134,6 +134,7 @@ const Schedule = (props: IScheduleProps) => {
                 {
                     noteVisibility ? (
                         <NoteCard
+                            onClickAddNote={props.onClickAddNote}
                             noteVisibility={noteVisibility}
                             setNoteVisibility={setNoteVisibility}
                             month={currentMonth}

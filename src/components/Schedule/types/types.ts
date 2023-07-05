@@ -1,8 +1,14 @@
+import React from "react";
+
 export interface ICurrentMontProp {
   number: number;
   string: string;
 }
 
+export interface IOnClickAddNote {
+  note: string | undefined;
+  date: string | undefined;
+}
 export interface IScheduleProps {
   label: string | undefined;
   id?: string | undefined;
@@ -27,6 +33,7 @@ export interface IScheduleProps {
   onClickDay?: Function;
   onClickPreviousMonth?: Function;
   onClickNextMonth?: Function;
+  onClickAddNote?: ((item: IOnClickAddNote) => React.ReactNode) | undefined;
 }
 
 export interface IDateArray {

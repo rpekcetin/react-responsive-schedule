@@ -12,8 +12,9 @@ const NoteCard = (props: INoteProps) => {
         currentNote,
         setCurrentNote,
         setNoteVisibility,
-        setClickedNote
-    } = props
+        setClickedNote,
+        onClickAddNote
+    }: any = props
 
     //this object get selected full date and then create string date format 
     const titleFullDate: string = new Date(`${selectedDay?.month}.${selectedDay?.date}.${selectedDay?.year}`).toLocaleString('original',
@@ -67,7 +68,7 @@ const NoteCard = (props: INoteProps) => {
             <div className={`textarea-note ${mode}`}>
                 <textarea rows={5} value={currentNote} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleChange(e)} />
             </div>
-            <div className={`plus-note ${mode}`}>
+            <div className={`plus-note ${mode}`} onClick={() => onClickAddNote({ note: currentNote, date: titleFullDate })}>
                 <Plus />
             </div>
         </div>
