@@ -9,6 +9,10 @@ export interface IOnClickAddNote {
   note: string | undefined;
   date: string | undefined;
 }
+
+export interface IOnClickRemoveNote {
+  date: string | undefined;
+}
 export interface IScheduleProps {
   label: string | undefined;
   id?: string | undefined;
@@ -25,8 +29,8 @@ export interface IScheduleProps {
   mt?: string | undefined;
   mb?: string | undefined;
   style?: React.CSSProperties | undefined;
-  currentMonth?: ICurrentMontProp;
-  setCurrentMonth?: React.Dispatch<React.SetStateAction<ICurrentMontProp>>;
+  currentMonthProp?: ICurrentMontProp;
+  setCurrentMonthProps?: React.Dispatch<React.SetStateAction<ICurrentMontProp>>;
   onClickAdd?: Function;
   onClickClear?: Function;
   onClickClose?: Function;
@@ -34,6 +38,9 @@ export interface IScheduleProps {
   onClickPreviousMonth?: Function;
   onClickNextMonth?: Function;
   onClickAddNote?: ((item: IOnClickAddNote) => React.ReactNode) | undefined;
+  onClickRemoveNote?:
+    | ((item: IOnClickRemoveNote) => React.ReactNode)
+    | undefined;
 }
 
 export interface IDateArray {

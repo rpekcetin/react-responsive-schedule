@@ -6,8 +6,11 @@ import ScheduleNav from '../components/ScheduleNav'
 import "../../Css/Flex-Grid.css";
 import "@fontsource/quicksand";
 import NoteCard from '../components/NoteCard'
+import "../../Css/default.css";
 
 const Schedule = (props: IScheduleProps) => {
+    const { onClickAddNote, onClickPreviousMonth, onClickNextMonth, currentMonthProp, setCurrentMonthProps, onClickRemoveNote }: IScheduleProps = props
+
     const currentYear: number = new Date().getFullYear();
     const currentMonth: number = new Date().getMonth() + 1;
     const currentDay: number = new Date().getDate()
@@ -115,30 +118,17 @@ const Schedule = (props: IScheduleProps) => {
         <div className={`schedule-box`}>
             <div className={mode === 'dark' ? 'dark-box' : mode === '' ? '' : 'light-box'} />
             <div
-                id={props.id}
-                style={{
-                    ...props.style,
-                    padding: props.p,
-                    paddingTop: props.pt,
-                    paddingBottom: props.pb,
-                    paddingRight: props.pr,
-                    paddingLeft: props.pl,
-                    margin: props.m,
-                    marginTop: props.mt,
-                    marginBottom: props.mb,
-                    marginRight: props.mr,
-                    marginLeft: props.ml
-                }}
                 className={`schedule ${clickedNote ? 'note-box' : null}`}
             >
                 {
                     noteVisibility ? (
                         <NoteCard
-                            onClickAddNote={props.onClickAddNote}
+                            onClickAddNote={onClickAddNote}
                             noteVisibility={noteVisibility}
                             setNoteVisibility={setNoteVisibility}
                             month={currentMonth}
                             year={currentMonth}
+                            onClickRemoveNote={onClickRemoveNote}
                             selectedDay={selectedDay}
                             currentNote={currentNote}
                             mode={mode}
@@ -148,8 +138,8 @@ const Schedule = (props: IScheduleProps) => {
                     ) : (
                         <>
                             <ScheduleNav
-                                onClickPreviousMonth={props.onClickPreviousMonth}
-                                onClickNextMonth={props.onClickNextMonth}
+                                onClickPreviousMonth={onClickPreviousMonth}
+                                onClickNextMonth={onClickNextMonth}
                                 years={year}
                                 month={month}
                                 setMonth={setMonth}
@@ -157,8 +147,8 @@ const Schedule = (props: IScheduleProps) => {
                                 setAnimate={setAnimate}
                                 mode={mode}
                                 setMode={setMode}
-                                currentMonth={props?.currentMonth}
-                                setCurrentMonth={props?.setCurrentMonth}
+                                currentMonth={currentMonthProp}
+                                setCurrentMonth={setCurrentMonthProps}
                             />
                             <div className={`date-button-container ${animate}`}>
                                 {daysListReview?.map((data: string, index: number) => {

@@ -13,7 +13,8 @@ const NoteCard = (props: INoteProps) => {
         setCurrentNote,
         setNoteVisibility,
         setClickedNote,
-        onClickAddNote
+        onClickAddNote,
+        onClickRemoveNote
     }: any = props
 
     //this object get selected full date and then create string date format 
@@ -42,8 +43,16 @@ const NoteCard = (props: INoteProps) => {
     }
 
     //this func clear current note when click trash icon
-    const handleClear = () => {
-        setCurrentNote('')
+    const handleClear = async () => {
+        await onClickRemoveNote({ date: titleFullDate })
+        await setCurrentNote('')
+        handleBack()
+    }
+
+    //this func using user's functions and then close the note card
+    const handleAddNote = async () => {
+        await onClickAddNote({ note: currentNote, date: titleFullDate })
+        handleBack()
     }
 
     return (
@@ -68,7 +77,7 @@ const NoteCard = (props: INoteProps) => {
             <div className={`textarea-note ${mode}`}>
                 <textarea rows={5} value={currentNote} onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => handleChange(e)} />
             </div>
-            <div className={`plus-note ${mode}`} onClick={() => onClickAddNote({ note: currentNote, date: titleFullDate })}>
+            <div className={`plus-note ${mode}`} onClick={handleAddNote}>
                 <Plus />
             </div>
         </div>

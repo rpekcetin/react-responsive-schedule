@@ -31,12 +31,6 @@
     text-align: center;
     cursor: pointer;
 }
-.button-next:hover {
-    background-color: rgb(247, 246, 246);
-}
-.button-previous:hover {
-    background-color: rgb(247, 246, 246);
-}
 .mode-container {
     position: absolute;
     right: 10px;
@@ -89,10 +83,4 @@
 }
 .dark-button-next {
   color: white;
-}
-.dark-button-next:hover {
-  background-color: #535353;
-}
-.dark-button-prev:hover {
-  background-color: #535353;
 }

@@ -1,4 +1,8 @@
-import { IDateArray, IOnClickAddNote } from "../../../types/types";
+import {
+  IDateArray,
+  IOnClickAddNote,
+  IOnClickRemoveNote,
+} from "../../../types/types";
 
 export interface INoteProps {
   selectedDay: IDateArray;
@@ -11,4 +15,7 @@ export interface INoteProps {
   mode: string;
   setClickedNote: React.Dispatch<React.SetStateAction<boolean>>;
   onClickAddNote?: ((item: IOnClickAddNote) => React.ReactNode) | undefined;
+  onClickRemoveNote?:
+    | ((item: IOnClickRemoveNote) => React.ReactNode)
+    | undefined;
 }

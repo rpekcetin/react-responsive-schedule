@@ -167,7 +167,8 @@
 /*--------------------------------------Animation Pages----------------------------------------*/
 
   .schedule.note-box {
-    animation: note-box-animation 0.5s ease-in;
+    animation: note-box-animation 0.5s ease;
+    background-color: transparent;
   }
 
   @keyframes note-box-animation {
