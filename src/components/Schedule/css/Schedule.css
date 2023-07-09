@@ -166,9 +166,14 @@
 
 /*--------------------------------------Animation Pages----------------------------------------*/
 
-  .schedule.note-box {
+  .schedule.note-box.dark {
     animation: note-box-animation 0.5s ease;
-    background-color: transparent;
+    background-color: #212121;
+  }
+
+  .schedule.note-box.light {
+    animation: note-box-animation 0.5s ease;
+    background-color: white;
   }
 
   @keyframes note-box-animation {

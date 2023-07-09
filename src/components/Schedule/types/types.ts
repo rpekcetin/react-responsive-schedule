@@ -9,13 +9,13 @@ export interface IOnClickAddNote {
   note: string | undefined;
   date: string | undefined;
 }
-
 export interface IOnClickRemoveNote {
   date: string | undefined;
 }
 export interface IScheduleProps {
   currentMonthProp?: ICurrentMontProp;
   setCurrentMonthProps?: React.Dispatch<React.SetStateAction<ICurrentMontProp>>;
+  monthData?: string[];
   onClickAdd?: Function;
   onClickClear?: Function;
   onClickClose?: Function;

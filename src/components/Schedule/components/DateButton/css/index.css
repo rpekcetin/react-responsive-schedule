@@ -11,6 +11,10 @@
     text-align: center;
     transition: all 0.3s;
     cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .DateButton:hover {
     background-color: rgb(247, 246, 246);
@@ -41,6 +45,10 @@
     background-color: #212121;
     color: white;
     cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .DarkDateButton:hover {
     background-color: #535353;
@@ -65,4 +73,20 @@
 }
 .DarkDateButton.customDate {
     color:#1DB954;
+}
+.button-dot.dark {
+    background-color:var(--secondary-color);
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    bottom: 5px;
+    border-radius: 100%;
+}
+.button-dot.light {
+    background-color:var(--primary-color);
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    bottom: 5px;
+    border-radius: 100%;
 }

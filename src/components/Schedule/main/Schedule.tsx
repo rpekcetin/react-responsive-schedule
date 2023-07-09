@@ -7,9 +7,8 @@ import "../../Css/Flex-Grid.css";
 import "@fontsource/quicksand";
 import NoteCard from '../components/NoteCard'
 import "../../Css/default.css";
-
 const Schedule = (props: IScheduleProps) => {
-    const { onClickAddNote, onClickPreviousMonth, onClickNextMonth, currentMonthProp, setCurrentMonthProps, onClickRemoveNote }: IScheduleProps = props
+    const { onClickAddNote, onClickPreviousMonth, onClickNextMonth, currentMonthProp, setCurrentMonthProps, onClickRemoveNote, monthData }: IScheduleProps = props
 
     const currentYear: number = new Date().getFullYear();
     const currentMonth: number = new Date().getMonth() + 1;
@@ -113,12 +112,11 @@ const Schedule = (props: IScheduleProps) => {
             setClickedNote(false)
         }, 500);
     }
-
     return (
         <div className={`schedule-box`}>
             <div className={mode === 'dark' ? 'dark-box' : mode === '' ? '' : 'light-box'} />
             <div
-                className={`schedule ${clickedNote ? 'note-box' : null}`}
+                className={`schedule ${clickedNote ? 'note-box' : null} ${mode === '' || mode === 'light' ? 'light' : 'dark'}`}
             >
                 {
                     noteVisibility ? (
@@ -150,7 +148,7 @@ const Schedule = (props: IScheduleProps) => {
                                 currentMonth={currentMonthProp}
                                 setCurrentMonth={setCurrentMonthProps}
                             />
-                            <div className={`date-button-container ${animate}`}>
+                            <div className={`date-button-container ${animate} ${mode}`}>
                                 {daysListReview?.map((data: string, index: number) => {
                                     return (
                                         <div className='container-item' key={`day-list-${index}`}>
@@ -161,21 +159,21 @@ const Schedule = (props: IScheduleProps) => {
                                 {previousArray?.map((data: IDateArray, index: number) => {
                                     return (
                                         <div className='container-item' onClick={() => handleSelectedDay(data)} key={data.key}>
-                                            <DateButton className={`previous-button ${mode === 'dark' ? 'DarkDateButton previous-button-dark' : 'DateButton'}`} id={`prev-button-${index}`} label={data?.date} />
+                                            <DateButton mode={mode} is_have={monthData?.includes(`${data.date}.${data.month}.${data.year}`)} className={`previous-button ${mode === 'dark' ? 'DarkDateButton previous-button-dark' : 'DateButton'}`} id={`prev-button-${index}`} label={data?.date} />
                                         </div>
                                     )
                                 }).slice((previousDayCount - previousCount), previousDayCount)}
                                 {array?.map((data: IDateArray, index: number) => {
                                     return (
                                         <div className='container-item' onClick={() => handleSelectedDay(data)} id={`current-button-${index}`} key={data.key}>
-                                            <DateButton label={data?.date} className={`${mode === 'dark' ? 'DarkDateButton' : 'DateButton'} ${currentFullDate === `${data.date + '.' + data.month + '.' + data.year}` ? mode === 'dark' ? 'current-dark-date-button' : 'current-date-button' : ''}`} />
+                                            <DateButton mode={mode} is_have={monthData?.includes(`${data.date}.${data.month}.${data.year}`)} label={data?.date} className={`${mode === 'dark' ? 'DarkDateButton' : 'DateButton'} ${currentFullDate === `${data.date + '.' + data.month + '.' + data.year}` ? mode === 'dark' ? 'current-dark-date-button' : 'current-date-button' : ''}`} />
                                         </div>
                                     )
                                 })}
                                 {nextArray?.map((data: IDateArray, index: number) => {
                                     return (
                                         <div className='container-item' onClick={() => handleSelectedDay(data)} key={data.key}>
-                                            <DateButton className={`next-button ${mode === 'dark' ? 'DarkDateButton next-button-dark' : 'DateButton'}`} id={`next-button-${index}`} label={data?.date} />
+                                            <DateButton mode={mode} is_have={monthData?.includes(`${data.date}.${data.month}.${data.year}`)} className={`next-button ${mode === 'dark' ? 'DarkDateButton next-button-dark' : 'DateButton'}`} id={`next-button-${index}`} label={data?.date} />
                                         </div>
                                     )
                                 }).slice(0, nextCount)}
