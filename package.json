@@ -1,6 +1,6 @@
 {
   "name": "react-responsive-schedule",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "react responsive schedule",
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs",
@@ -9,6 +9,7 @@
     "build-storybook": "storybook build"
   },
   "author": "Recep Muhammet Pekçetin",
+  "keywords": ["react responsive schedule","schedule","calendar","responsive","responsive calendar","responsive schedule"],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.22.5",

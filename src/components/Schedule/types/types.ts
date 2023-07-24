@@ -16,12 +16,6 @@ export interface IScheduleProps {
   currentMonthProp?: ICurrentMontProp;
   setCurrentMonthProps?: React.Dispatch<React.SetStateAction<ICurrentMontProp>>;
   monthData?: string[];
-  onClickAdd?: Function;
-  onClickClear?: Function;
-  onClickClose?: Function;
-  onClickDay?: Function;
-  onClickPreviousMonth?: Function;
-  onClickNextMonth?: Function;
   onClickAddNote?: ((item: IOnClickAddNote) => React.ReactNode) | undefined;
   onClickRemoveNote?:
     | ((item: IOnClickRemoveNote) => React.ReactNode)
