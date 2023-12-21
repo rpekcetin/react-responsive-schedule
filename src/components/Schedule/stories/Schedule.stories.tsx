@@ -10,12 +10,12 @@ const meta: any = {
     argTypes: {
         currentMonthProp: { description: 'Handle current month with react hooks.', defaultValue: null, control: { type: null } },
         setCurrentMonthProps: { control: { type: null } },
-        onClickClear: { table: { disable: true }, control: { type: null } },
-        onClickAdd: { control: { type: null } },
-        onClickClose: { control: { type: null } },
-        onClickDay: { control: { type: null } },
-        onClickPreviousMonth: { control: { type: null } },
-        onClickNextMonth: { control: { type: null } },
+        //onClickClear: { table: { disable: true }, control: { type: null } },
+        //onClickAdd: { control: { type: null } },
+        //onClickClose: { control: { type: null } },
+        //onClickDay: { control: { type: null } },
+        //onClickPreviousMonth: { control: { type: null } },
+        //onClickNextMonth: { control: { type: null } },
     }
 } satisfies Meta<typeof Schedule>;
 

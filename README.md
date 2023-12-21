@@ -2,6 +2,18 @@
 
 react-responsive-schedule package is a calendar and note taking tool, you can add it easily and use it with your own data and APIs.
 
+White One;
+
+![Alt text for the image](./assets/images/white.png)
+
+Black One;
+
+![Alt text for the image](./assets/images/black.png)
+
+Note Area;
+
+![Alt text for the image](./assets/images/note.png)
+
 For your suggestions and ideas, you can reach me at this email address __receppek38@gmail.com__
 
 | Name     | Value     | Description     |
