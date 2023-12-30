@@ -1,6 +1,6 @@
 {
   "name": "react-responsive-schedule",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "react responsive schedule",
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs",
@@ -9,14 +9,20 @@
     "build-storybook": "storybook build"
   },
   "author": "Recep Muhammet Pekçetin",
-  "keywords": ["react responsive schedule","schedule","calendar","responsive","responsive calendar","responsive schedule"],
+  "keywords": [
+    "react responsive schedule",
+    "schedule",
+    "calendar",
+    "responsive",
+    "responsive calendar",
+    "responsive schedule"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.22.5",
     "@babel/preset-env": "^7.22.5",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
-    "@fontsource/quicksand": "^5.0.3",
     "@rollup/plugin-commonjs": "^25.0.0",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.1",
@@ -50,6 +56,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "@fontsource/quicksand": "^5.0.3",
     "rollup-plugin-postcss": "^4.0.2"
   }
 }

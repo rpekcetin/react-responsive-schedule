@@ -4,15 +4,15 @@ react-responsive-schedule package is a calendar and note taking tool, you can ad
 
 White One;
 
-![Alt text for the image](https://project-storage-phi.vercel.app/white.png)
+![Alt text for the image](https://rpekcetin.github.io/white.png)
 
 Black One;
 
-![Alt text for the image](https://project-storage-phi.vercel.app/black.png)
+![Alt text for the image](https://rpekcetin.github.io/black.png)
 
 Note Area;
 
-![Alt text for the image](https://project-storage-phi.vercel.app/note.png)
+![Alt text for the image](https://rpekcetin.github.io/note.png)
 
 For your suggestions and ideas, you can reach me at this email address __receppek38@gmail.com__
 
